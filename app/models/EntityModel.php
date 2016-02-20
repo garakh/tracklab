@@ -18,7 +18,7 @@ class EntityModel {
         if (get_class($id) == "MongoId") {
             $this->_id = $id;
         } else {
-            $this->_id = new MongoId($id);
+            $this->_id = new \MongoId($id);
         }
     }
 }
