@@ -1,0 +1,76 @@
+<div class="note note-info">
+    <h4 class="block">Example</h4>
+    <b>Query:</b>
+    <pre>{ "name" : "signup" }</pre>
+    <b>Aggregation:</b>
+    <pre>[
+	{
+		"$project" : { "name" : 1}
+	},
+	{
+		"$group" : {
+			"_id" : "$name",
+			"sum" : {"$sum" : "$name"}
+		}
+	}	
+]</pre>
+</div>
+
+<div class="portlet light">
+
+    <div class="page-head">
+        <!-- BEGIN PAGE TITLE -->
+        <div class="page-title">
+            <h1>Events data</h1>
+        </div>
+        <div class="pull-right"><a class="btn btn-success " ng-click="runQuery()">Run query</a><a class="btn btn-success" ng-click="runAggregate()">Aggregate</a></div>
+    </div>    
+
+    <div class="portlet-body" style="height: auto;">
+        <form role="form" class="form-horizontal">
+            <div class="form-body">
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="template">Query</label>
+                    <div class="col-md-10">
+                        <textarea ng-model="query" class="form-control"></textarea>
+                        <div class="form-control-focus">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="sort">Sort</label>
+                    <div class="col-md-10">
+                        <textarea ng-model="sort" class="form-control"></textarea>
+                        <div class="form-control-focus">
+                        </div>
+
+                    </div>
+                </div>          
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="limit">Limit</label>
+                    <div class="col-md-1">
+                        <input type="number" ng-model="limit" class="form-control"></textarea>
+                        <div class="form-control-focus">
+                        </div>
+
+                    </div>
+                </div>                  
+            </div>
+        </form>
+        <h2>Result</h1>
+            <table class="table table-hover table-light">
+                <thead>
+                    <tr>
+                        <th ng-repeat="col in columns">{{col}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in items">
+                        <td ng-repeat="col in columns">{{item[col]}}</td>
+                    </tr>
+                </tbody>
+            </table>           
+    </div>
+</div>
+

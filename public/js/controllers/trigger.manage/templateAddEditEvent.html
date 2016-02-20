@@ -1,0 +1,61 @@
+<div class="portlet light">
+    <div class="page-head">
+    <!-- BEGIN PAGE TITLE -->
+    <div class="page-title">
+        <h1>Event trigger</h1>
+    </div>
+</div>
+    <div class="portlet-body form" style="height: auto;">
+        <form role="form" class="form-horizontal">
+            <div class="form-body">
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="name">Name</label>
+                    <div class="col-md-10">
+                        <input ng-model="name" type="text" class="form-control" id="name" placeholder="">
+                        <div class="form-control-focus">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="condition">Trigger ID</label>
+                    <div class="col-md-10">
+                        <input ng-model="trigger" type="text" class="form-control" id="condition" placeholder="">
+                        <div class="form-control-focus">
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="handler">Handler ID</label>
+                    <div class="col-md-10">
+                        <input ng-model="handler" type="text" class="form-control" id="handler" placeholder="">
+                        <div class="form-control-focus">
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="template">Data</label>
+                    <div class="col-md-10">
+                        <textarea ng-model="data" class="form-control"></textarea>
+                        <div class="form-control-focus">
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-10">
+                        <!--<button type="button" class="btn default">Cancel</button>-->
+                        <a type="button" class="btn blue" ng-click="addEvent()" ng-show="triggerId == null">Create</a>
+                        <a type="button" class="btn blue" ng-click="editEvent()" ng-show="triggerId">Save</a>
+                        <a type="button" class="btn default" ng-href="/trigger/event/">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

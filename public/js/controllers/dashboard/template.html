@@ -1,0 +1,9 @@
+<form action="/gate" method="POST">
+    type: <input type="text" name="type" value="people"/><br>
+    name event: <input type="text" name="name" value="sign up"/><br>
+    email: <input type="text" name="email" value="admin@admin.ru"/><br>
+    project: <input type="text" name="project" value="{{currentProject}}"/><Br>
+    secret: <input type="text" name="secret" value=""/><Br>
+    another date: key: <input ng-model="aKey" type="text"/> value: <input name="{{aKey}}" type="text"/><br>
+    <input type="submit"/>
+</form>
