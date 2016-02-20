@@ -1,2 +1,1 @@
-Track Lab project developed by Primepix.
-Garakh Iliya, Pavel Pavlov
+Track Lab project developed by Garakh Iliya
