@@ -6,7 +6,7 @@ return new \Phalcon\Config(array(
     ),
     'mongo' => array(
         'connectionString' => 'mongodb://localhost:27017',
-        'dbname' => 'trackLab',
+        'dbname' => 'tracklab',
         'useCreds' => false,
         'username' => '',
         'password' => ''
