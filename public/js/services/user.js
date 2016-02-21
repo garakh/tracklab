@@ -43,6 +43,11 @@ define(['./module', "jquery"], function (services, $) {
                 //** Query **/
                 queryEvents: function (project, type, query, sort, limit) {
                     return api.post('/query/queryEvents', {project: project, type: type, query: query, sort: sort, limit: limit});
+                },
+                /** ------ **/
+                //** Misc **/ 
+                gate: function (type, name, email, project, json) {
+                    return api.post('/gate/', {type: type, name: name, email: email, project: project, data: json});
                 }
             }
         }]);

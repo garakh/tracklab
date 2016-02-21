@@ -22,6 +22,7 @@ class EventService extends ServiceBase
      */
     public function processPeople($project, $peopleData)
     {
+        echo "people";
         $segments = PeopleTrigger::findByProject($project);
         foreach ($segments as $segment)
         {
@@ -29,10 +30,12 @@ class EventService extends ServiceBase
             $class = "TrackLab\\Trigger\\People\\" . $project->code . "\\$triggerName";
             $trigger = new $class('people_' . $project->code, 'event_' . $project->code, $this->getMongoCollection('people_' . $project->code), $this->getMongoCollection('event_' . $project->code), $this->getDB(), $this->di);
 
-
-            if ($trigger->check($peopleData) && !$segment->hasPeople($peopleData->getId()))
+            $data = $segment->data;
+            if ($trigger->check($peopleData, $data) && !$segment->hasPeople($peopleData->getId()))
             {
-                $this->runHandler($segment->handler, $segment->data, $peopleData);
+                if($segment->handler)
+                    $this->runHandler($segment->handler, $data, $peopleData);
+                
                 $segment->addPeople($peopleData->getId());
                 $segment->save();
             }
@@ -41,20 +44,23 @@ class EventService extends ServiceBase
 
     public function processEvent($project, $eventData)
     {
-        $triggers = array_merge(
-                EventTrigger::findByProject($project, $eventData->name),
-                EventTrigger::findByProject($project, false));
+        echo "event";
+        
+        $triggers = EventTrigger::findByProject($project);
         
         
         foreach ($triggers as $tr)
         {
             $triggerName = $tr->trigger;
+            echo $triggerName;
             $class = "TrackLab\\Trigger\\Event\\" . $project->code . "\\$triggerName";
             $trigger = new $class('people_' . $project->code, 'event_' . $project->code, $this->getMongoCollection('people_' . $project->code), $this->getMongoCollection('event_' . $project->code), $this->getDB(), $this->di);
 
-            if ($trigger->check($eventData))
+            $data = $tr->data;
+            if ($trigger->check($eventData, $data))
             {
-                $this->runHandler($tr->handler, $tr->data, $eventData);
+                if($tr->handler)
+                    $this->runHandler($tr->handler, $data, $eventData);
             }
         }
     }

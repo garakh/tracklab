@@ -1,0 +1,75 @@
+
+
+<div class="portlet light">
+    <div class="page-head">
+        <!-- BEGIN PAGE TITLE -->
+        <div class="page-title">
+            <h1>API Test</h1>
+        </div>
+    </div>
+    <div class="portlet-body form" style="height: auto;">
+        <form role="form" class="form-horizontal">
+            <div class="form-body">
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="type">Type</label>
+                    <div class="col-md-10">
+                        <select ng-model="type" class="form-control">
+                            <option value="people">people</option>
+                            <option value="event">event</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="condition">Event name</label>
+                    <div class="col-md-10">
+                        <input ng-model="name" type="text" class="form-control"  placeholder="E.g. payment">
+                        <div class="form-control-focus">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="handler">Email</label>
+                    <div class="col-md-10">
+                        <input ng-model="email" type="text" class="form-control"  placeholder="People's email">
+                        <div class="form-control-focus">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="template">Project</label>
+                    <div class="col-md-10">
+                        <input ng-model="project" type="text" class="form-control" placeholder="New project name">
+                        <div class="form-control-focus">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="template">JSON Data</label>
+                    <div class="col-md-10">
+                        <textarea ng-model="data" class="form-control" placeholder="Any json data"></textarea>
+                        <div class="form-control-focus">
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+
+            <div class="form-actions">
+                <div class="row">
+
+                    <div class="col-md-offset-2 col-md-10">
+                        <a type="button" class="btn blue btn-lg" ng-click="send()">Send</a>
+                        <h3 id="test-notify" style="display: none">Sent</h3>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

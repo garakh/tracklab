@@ -13,6 +13,10 @@ define(['./app'], function (app) {
             controller: 'controllers.dashboard'
         });
 
+        $routeProvider.when('/test', {
+            templateUrl: 'js/controllers/test/template.html',
+            controller: 'controllers.test'
+        });
 
         $routeProvider.when('/trigger', {
             templateUrl: 'js/controllers/trigger/template.html',

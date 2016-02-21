@@ -42,9 +42,9 @@ class ControllerBase extends Controller
      * Получить все данные что пришли
      * @return mixed
      */
-    public function getRequestData()
+    public function getRequestData($asArray = false)
     {
-        return json_decode(file_get_contents("php://input"));
+        return json_decode(file_get_contents("php://input"), $asArray);
     }
 
     public function replaceId($el)

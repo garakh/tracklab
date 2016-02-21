@@ -16,6 +16,7 @@ foreach (array(
     'trigger/people/add',
     'trigger/people/edit/{id}',
     'data/event',
+    'test',
 
 ) as $route)
     $di->get('router')->add('/' . $route, array(

@@ -16,14 +16,15 @@ class GateController extends ControllerBase
                 throw new AppException("WrongRequest", "Use POST");
             }
             
-            $request = $this->request->get();
+            $request1 = $this->request->get();
+            $request2 = $this->getRequestData(true);
+            $request = count($request1) > count($request2) ? $request1 : $request2;
+            
             /* require data */
             if (
                     !array_key_exists('email', $request) ||
                     !array_key_exists('project', $request) ||
-                    !array_key_exists('secret', $request) ||
-                    !array_key_exists('type', $request) ||
-                    !array_key_exists('name', $request)
+                    !array_key_exists('type', $request)
             )
             {
                 throw new AppException("WrongRequest", "Data absent");

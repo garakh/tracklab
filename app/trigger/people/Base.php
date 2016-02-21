@@ -1,41 +1,40 @@
 <?php
 
-namespace TrackLab\Trigger\Event;
+namespace TrackLab\Trigger\People;
 
 abstract class Base
 {
+
     /**
      *
      * @var string 
      */
     protected $peopleColName;
-    
+
     /**
      *
      * @var string 
-     */    
+     */
     protected $eventColName;
-    
+
     /**
      *
      * @var \MongoCollection 
-     */    
+     */
     protected $peoples;
-    
+
     /**
      *
      * @var \MongoCollection 
-     */       
+     */
     protected $events;
-    
+
     /**
      *
      * @var \MongoDB 
-     */       
+     */
     protected $db;
-    
-    protected $di;
-    
+
     public function __construct($peopleColName, $eventColName, $peoples, $events, $db, $di)
     {
         $this->peopleColName = $peopleColName;
@@ -48,6 +47,6 @@ abstract class Base
 
     /**
      * @return bool
-     */    
-    abstract public function check($event, &$settings);
+     */
+    abstract public function check($people, &$settings);
 }

@@ -42,7 +42,7 @@ define(['../module'], function (controllers) {
                             {text: 'Event triggers', href: '/trigger/event', icon: 'icon-home'},
                             {text: 'People triggers', href: '/trigger/people', icon: 'icon-home'},
                             {text: 'Event data', href: '/data/event', icon: 'icon-home'},
-                            {text: 'Config', href: '', icon: 'icon-home'}
+                            {text: 'Test', href: '/test', icon: 'icon-home'}
                         ]
 
                     }
