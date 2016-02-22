@@ -7,7 +7,7 @@ define(['../module'], function (controllers) {
 
                     $rootScope.loadingPage = true;
                     $rootScope.currentProject = localStorage.getItem("projectCode");
-                    if(!$rootScope.currentProject)
+                    if (!$rootScope.currentProject)
                         $rootScope.currentProject = 'demo';
                     $scope.triggers = {};
 
@@ -30,7 +30,8 @@ define(['../module'], function (controllers) {
                     var updateMenu = function () {
                         //update
                         $rootScope.currentProject = localStorage.getItem("projectCode");
-
+                        if (!$rootScope.currentProject)
+                            $rootScope.currentProject = 'demo';
 
 
                         $scope.projects_menu = [];
