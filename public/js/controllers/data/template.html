@@ -5,15 +5,13 @@
     <b>Aggregation:</b>
     <pre>[
 	{
-		"$project" : { "name" : 1}
-	},
-	{
 		"$group" : {
 			"_id" : "$name",
-			"sum" : {"$sum" : "$name"}
+			"sum" : {"$sum" : 1}
 		}
 	}	
 ]</pre>
+    <p>Or just click Run to get all stored data</p>
 </div>
 
 <div class="portlet light">
@@ -25,23 +23,19 @@
         </div>
         <div class="pull-right"><a class="btn btn-success " ng-click="runQuery()">Run query</a><a class="btn btn-success" ng-click="runAggregate()">Aggregate</a></div>
     </div>    
-
     <div class="portlet-body" style="height: auto;">
         <form role="form" class="form-horizontal">
             <div class="form-body">
                 <div class="form-group form-md-line-input">
-                    <label class="col-md-2 control-label" for="template">Query</label>
+                    <label class="col-md-2 control-label" for="query">Query</label>
                     <div class="col-md-10">
-                        <textarea ng-model="query" class="form-control"></textarea>
-                        <div class="form-control-focus">
-                        </div>
-
+                        <textarea class="form-control" id="query"></textarea>
                     </div>
                 </div>
                 <div class="form-group form-md-line-input">
                     <label class="col-md-2 control-label" for="sort">Sort</label>
                     <div class="col-md-10">
-                        <textarea ng-model="sort" class="form-control"></textarea>
+                        <textarea class="form-control" id="sort"></textarea>
                         <div class="form-control-focus">
                         </div>
 

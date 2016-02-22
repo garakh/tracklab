@@ -5,6 +5,7 @@
 define([
     'angular',
     'angular-route',
+    'angular-chart',
     './controllers/index',
     './directives/index',
     './filters/index',
@@ -23,5 +24,6 @@ define([
         'app.filters',
         'app.services',
         'ngRoute',
+        'chart.js'
     ]);
 });

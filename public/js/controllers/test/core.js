@@ -4,6 +4,7 @@ define(['../module'], function (controllers) {
         function ($scope, $rootScope, user) {
             $scope.type = 'event';
             $scope.project = $rootScope.currentProject;
+         
 
             $scope.send = function () {
                 user.gate($scope.type, $scope.name, $scope.email, $scope.project, $scope.data).then(function () {

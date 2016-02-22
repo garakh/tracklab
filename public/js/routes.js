@@ -57,10 +57,18 @@ define(['./app'], function (app) {
         });
 
         $routeProvider.when('/data/event', {
-            templateUrl: 'js/controllers/data/templateEvent.html',
+            templateUrl: 'js/controllers/data/template.html',
             controller: 'controllers.data'
         });
 
+        $routeProvider.when('/data/people', {
+            templateUrl: 'js/controllers/data/template.html',
+            controller: 'controllers.data'
+        });
+        $routeProvider.when('/report', {
+            templateUrl: 'js/controllers/report/template.html',
+            controller: 'controllers.report'
+        });
         $routeProvider.otherwise({
             redirectTo: '/'
         });

@@ -22,7 +22,6 @@ class EventService extends ServiceBase
      */
     public function processPeople($project, $peopleData)
     {
-        echo "people";
         $segments = PeopleTrigger::findByProject($project);
         foreach ($segments as $segment)
         {
@@ -44,15 +43,11 @@ class EventService extends ServiceBase
 
     public function processEvent($project, $eventData)
     {
-        echo "event";
-        
-        $triggers = EventTrigger::findByProject($project);
-        
-        
+         $triggers = EventTrigger::findByProject($project);
+         
         foreach ($triggers as $tr)
         {
             $triggerName = $tr->trigger;
-            echo $triggerName;
             $class = "TrackLab\\Trigger\\Event\\" . $project->code . "\\$triggerName";
             $trigger = new $class('people_' . $project->code, 'event_' . $project->code, $this->getMongoCollection('people_' . $project->code), $this->getMongoCollection('event_' . $project->code), $this->getDB(), $this->di);
 

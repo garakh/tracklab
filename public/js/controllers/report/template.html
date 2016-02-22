@@ -1,0 +1,40 @@
+<div class="note note-info">
+    <h4 class="block">Not yet implemented</h4>
+    <p>It's a place for beauty charts and timeline based reports</p>
+</div>
+
+<div class="portlet light">
+
+    <div class="page-head">
+        <!-- BEGIN PAGE TITLE -->
+        <div class="page-title">
+            <h1>Report</h1>
+        </div>
+    </div>    
+    <div class="portlet-body" style="height: auto;">
+        <form role="form" class="form-horizontal">
+            <div class="form-body">
+                <div class="form-group form-md-line-input">
+                    <label class="col-md-2 control-label" for="report-query">Query</label>
+                    <div class="col-md-10">
+                        <textarea class="form-control" id="report-query">[
+	{
+		"$group" : {
+			"_id" : "$name",
+			"sum" : {"$sum" : 1}
+		}
+	}	
+]</textarea>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+        <h2>Result</h1>
+            <canvas id="line" class="chart chart-line" chart-data="data"
+                    chart-labels="labels" chart-legend="true" chart-series="series"
+                    chart-click="onClick" >
+            </canvas>          
+    </div>
+</div>
+

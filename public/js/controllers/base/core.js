@@ -4,7 +4,7 @@ define(['../module'], function (controllers) {
             ['$scope', '$rootScope', '$timeout', 'services.layout',
                 '$location', 'services.user', 'services.frontendLayout',
                 function ($scope, $rootScope, $timeout, Layout, $location, user, frontendLayout) {
-                    
+
                     $rootScope.loadingPage = true;
                     $rootScope.currentProject = localStorage.getItem("projectCode");
                     $scope.triggers = {};
@@ -38,11 +38,19 @@ define(['../module'], function (controllers) {
 
 
                         $scope.menu = [
-                            {text: 'Dashboard', href: '/', icon: 'icon-home'},
-                            {text: 'Event triggers', href: '/trigger/event', icon: 'icon-home'},
-                            {text: 'People triggers', href: '/trigger/people', icon: 'icon-home'},
-                            {text: 'Event data', href: '/data/event', icon: 'icon-home'},
-                            {text: 'Test', href: '/test', icon: 'icon-home'}
+                            {text: 'About', href: '/', icon: 'icon-home'},
+                            {text: 'Triggers', icon: 'icon-energy',
+                                submenu: [
+                                    {text: 'Events', href: '/trigger/event', icon: 'icon-energy'},
+                                    {text: 'People', href: '/trigger/people', icon: 'icon-energy'},
+                                ]},
+                            {text: 'Query', icon: 'icon-grid',
+                                submenu: [
+                                    {text: 'Events', href: '/data/event', icon: 'icon-grid'},
+                                    {text: 'People', href: '/data/people', icon: 'icon-grid'},
+                                ]},
+                            {text: 'Reports', href: '/report', icon: 'icon-graph'},
+                            {text: 'Test', href: '/test', icon: 'icon-paper-plane'}
                         ]
 
                     }

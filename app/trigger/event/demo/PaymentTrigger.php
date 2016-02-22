@@ -18,9 +18,7 @@ class PaymentTrigger extends Base
             $s->injectedData = 'some data';
             $settings = json_encode($s);
             
-            file_put_contents(__DIR__ . '/../../../../../public/PaymentTriggerLog.txt', json_encode(array($settings, $event)), FILE_APPEND | LOCK_EX);
-            
-            echo "done";
+            file_put_contents(__DIR__ . '/../../../../public/PaymentTriggerLog.txt', json_encode($settings), FILE_APPEND | LOCK_EX);
             
             return true;
         }

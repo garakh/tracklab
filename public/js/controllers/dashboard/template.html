@@ -1,9 +1,83 @@
-<form action="/gate" method="POST">
-    type: <input type="text" name="type" value="people"/><br>
-    name event: <input type="text" name="name" value="sign up"/><br>
-    email: <input type="text" name="email" value="admin@admin.ru"/><br>
-    project: <input type="text" name="project" value="{{currentProject}}"/><Br>
-    secret: <input type="text" name="secret" value=""/><Br>
-    another date: key: <input ng-model="aKey" type="text"/> value: <input name="{{aKey}}" type="text"/><br>
-    <input type="submit"/>
-</form>
+<div class="portlet light">
+
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-social-dribbble font-blue-sharp"></i>
+            <span class="caption-subject font-blue-sharp bold uppercase">Track Lab</span>
+        </div>
+        <div class="actions"></div>
+    </div>   
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>What is Track Lab?</h3>
+                <p>Track Lab is an opensource self-hosted data aggregation API for developers.</p>
+                <p>It's a free and lite alternative to services like MixPanel, Customer.io, etc.</p>
+            </div>
+            <div class="col-md-6">
+                <h3>Authority</h3>
+                <p>Made by <a href="https://ru.linkedin.com/in/garakh">Iliya Garakh</a> during the Koding Hackathon 2016.</p>                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3>How it works</h3>
+                <p>There are two general entities: people and events.</p>
+                <p>People is data about users, it's like user table but stored in TrackLab.</p>
+                <p>Event is really free object, you can store payments, hits, authorization etc info. Every event is connected with user issued this event.</p>
+                <p>Track Lab gathers the information and runs <b>Triggers and Handlers</b>. Trigger is a PHP class stored in /app/trigger/ with <i>check</i> method (all connected data are passed via params). This way you can implement any conditions, for instance AgeTrigger checks <i>age</i> field from incoming people info. If trigger's check method returns <i>true</i> then the system fires associated <i>handler</i>. Handler is a PHP class with method <i>run</i> stored in /app/handler/. E.g. EmailHandler sends emails to users.</p>
+                <p>People triggers work the same way but only once for associated user.</p>
+                <p>Feel free to create your own triggers. Store them in /app/trigger/event/project-name/ and /app/trigger/people/project-name/. Check out the source code to figure out how it works in details.</p>
+                <p>You can automatize sending hello e-mail to new users, gathering any statistics, sending notificaitions to Slack, and any other scenario which you can dream.</p>
+            </div>
+            <div class="col-md-6">
+                <h3>How to install</h3>
+                <p>
+                    You need to have installed:</p>
+                <ul>
+                    <li>PHP with Phalcon PHP Framework 2</li>
+                    <li>MongoDB</li>
+                </ul>
+                <p>
+                    Installation:</p>
+                <p><code>git clone https://github.com/garakh/tracklab</code></p>
+                <p><code>cd tracklab/public</code></p>
+                <p><code>bower install</code></p>
+            </div>            
+        </div>        
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3>API</h3>
+                <p>Send POST request to <i>/gate</i></p>
+                <h4>People</h4>
+                <p>Fields:</p>
+                <ul>
+                    <li>type = people</li>
+                    <li>email — (string) user's email</li>
+                    <li>project — (string) project code (e.g. demo). Needs to namespace your data</li>
+                    <li>data — (json) any object to save</li>
+                </ul>
+                <h4>Event</h4>
+                <p>Fields:</p>
+                <ul>
+                    <li>type = event</li>
+                    <li>name — (string) event's name(e.g. payment, signin)</li>
+                    <li>project — (string) project code (e.g. demo). Needs to namespace your data</li>
+                    <li>data — (json) any object to save</li>
+                </ul>
+                <h4>Example</h4>
+                <pre>
+                    type = event
+                    name = signin
+                    project = mysite
+                    data = {"from" : "landing"}
+                </pre>
+            </div>
+        </div>          
+
+     
+
+    </div>
+</div>

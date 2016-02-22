@@ -11,6 +11,7 @@ define([
     './trigger/core',
     './trigger.manage/core',
     './data/core',
+    './report/core',
     './test/core'    
     
 ], function () {});

@@ -16,6 +16,8 @@ foreach (array(
     'trigger/people/add',
     'trigger/people/edit/{id}',
     'data/event',
+    'data/people',
+    'report',
     'test',
 
 ) as $route)

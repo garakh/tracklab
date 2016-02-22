@@ -44,6 +44,9 @@ define(['./module', "jquery"], function (services, $) {
                 queryEvents: function (project, type, query, sort, limit) {
                     return api.post('/query/queryEvents', {project: project, type: type, query: query, sort: sort, limit: limit});
                 },
+                queryPeople: function (project, type, query, sort, limit) {
+                    return api.post('/query/queryPeople', {project: project, type: type, query: query, sort: sort, limit: limit});
+                },                
                 /** ------ **/
                 //** Misc **/ 
                 gate: function (type, name, email, project, json) {

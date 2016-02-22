@@ -16,7 +16,7 @@ class Email
 
     public function run($settings, $data)
     {
-        file_put_contents(__DIR__ . '/../../public/PaymentTriggerLog.txt', json_encode(array($s, $event)), FILE_APPEND | LOCK_EX);
+        file_put_contents(__DIR__ . '/../../public/EmailLog.txt', json_encode(array($settings, $data)), FILE_APPEND | LOCK_EX);
     }
 
 }

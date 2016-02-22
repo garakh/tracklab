@@ -16,7 +16,7 @@ class AgeTrigger extends Base
         $age = (int)$s->age;
         $peopleAge = (int)$people->age;
         
-        file_put_contents(__DIR__ . '/../../../../../public/AgeTriggerLog.txt', json_encode(array($age, $peopleAge)), FILE_APPEND | LOCK_EX);
+        file_put_contents(__DIR__ . '/../../../../public/AgeTriggerLog.txt', json_encode(array($age, $peopleAge)), FILE_APPEND | LOCK_EX);
         
         return $age <= $peopleAge;
     }
