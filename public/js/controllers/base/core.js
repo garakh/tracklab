@@ -7,6 +7,8 @@ define(['../module'], function (controllers) {
 
                     $rootScope.loadingPage = true;
                     $rootScope.currentProject = localStorage.getItem("projectCode");
+                    if(!$rootScope.currentProject)
+                        $rootScope.currentProject = 'demo';
                     $scope.triggers = {};
 
                     $scope.$on('$routeChangeSuccess', function () {
