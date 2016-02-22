@@ -36,13 +36,13 @@ class QueryService extends ServiceBase
             $data = $collection->aggregate($query);
         }
 
-        $res = array();
+        $res     = array();
         $columns = array();
         foreach ($data as $i => $r)
         {
             if ($type == 'query')
             {
-                $r['id'] = $r["_id"]->{'$id'};
+                $r['id']    = $r["_id"]->{'$id'};
                 $r['_date'] = date('Y-m-d H:i:s', (int) $r['_date']->sec);
                 unset($r["_id"]);
                 unset($r["peopleId"]);
@@ -62,7 +62,7 @@ class QueryService extends ServiceBase
             }
             else
             {
-                $res[] = array($i => $r);
+                $res[]     = array($i => $r);
                 if (!in_array($i, $columns))
                     $columns[] = $i;
             }
@@ -70,7 +70,7 @@ class QueryService extends ServiceBase
 
         return array("items" => $res, "columns" => $columns);
     }
-    
+
     /**
      * 
      * @param Project $project
@@ -94,15 +94,17 @@ class QueryService extends ServiceBase
         if ($type == 'aggregate')
         {
             $data = $collection->aggregate($query);
+            if (isset($data['result']))
+                $data = $data['result'];
         }
 
-        $res = array();
+        $res     = array();
         $columns = array();
         foreach ($data as $i => $r)
         {
             if ($type == 'query')
             {
-                $r['id'] = $r["_id"]->{'$id'};
+                $r['id']    = $r["_id"]->{'$id'};
                 $r['_date'] = date('Y-m-d H:i:s', (int) $r['_date']->sec);
                 unset($r["_id"]);
                 unset($r["peopleId"]);
@@ -122,12 +124,13 @@ class QueryService extends ServiceBase
             }
             else
             {
-                $res[] = array($i => $r);
+                $res[]     = array($i => $r);
                 if (!in_array($i, $columns))
                     $columns[] = $i;
             }
         }
 
         return array("items" => $res, "columns" => $columns);
-    }    
+    }
+
 }
