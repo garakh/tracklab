@@ -34,6 +34,8 @@ class QueryService extends ServiceBase
         if ($type == 'aggregate')
         {
             $data = $collection->aggregate($query);
+            if (isset($data['result']))
+                $data = $data['result'];
         }
 
         $res     = array();
